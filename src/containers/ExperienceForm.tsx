@@ -1,6 +1,7 @@
 import type { MutableRefObject } from "react";
 import Dropdown from "~/components/Dropdown";
 import Slider from "~/components/Slider";
+import { Mapping } from "~/constants/mapping";
 import type { InputType } from "~/types/input";
 
 type PropType = {
@@ -46,7 +47,7 @@ const ExperienceForm = ({ formRef }: PropType) => {
           <label className="mb-3 text-sm leading-none text-gray-800">
             Title/role of the job
           </label>
-          <Dropdown />
+          <Dropdown options={Object.keys(Mapping.role)} setVal={() => null} />
         </div>
       </div>
       <button

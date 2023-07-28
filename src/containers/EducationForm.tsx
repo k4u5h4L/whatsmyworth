@@ -1,5 +1,6 @@
 import type { MutableRefObject } from "react";
 import Dropdown from "~/components/Dropdown";
+import { Mapping } from "~/constants/mapping";
 import type { InputType } from "~/types/input";
 
 type PropType = {
@@ -39,7 +40,10 @@ const EducationForm = ({ formRef }: PropType) => {
           <label className="mb-3 text-sm leading-none text-gray-800">
             Education
           </label>
-          <Dropdown />
+          <Dropdown
+            options={Object.keys(Mapping.education)}
+            setVal={() => null}
+          />
         </div>
       </div>
       <button

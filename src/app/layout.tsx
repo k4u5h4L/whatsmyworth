@@ -1,3 +1,4 @@
+import Sidebar from "~/components/Sidebar";
 import "~/styles/globals.css";
 
 export const metadata = {
@@ -12,7 +13,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className={`flex h-screen w-screen justify-start`}>
+          <Sidebar />
+
+          <div className="z-10 h-screen overflow-auto py-1">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }

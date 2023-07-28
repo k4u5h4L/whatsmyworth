@@ -27,8 +27,8 @@ function Home() {
       <div className="w-full bg-white p-10">
         <div className="items-center border-b border-gray-200 pb-6 md:flex">
           <div className="mt-4 flex items-center md:mt-0">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-indigo-700">
-              <p className="text-base font-medium leading-none text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded bg-gray-100">
+              <p className="text-base font-medium leading-none text-gray-800">
                 01
               </p>
             </div>

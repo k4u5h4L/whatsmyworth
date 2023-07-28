@@ -4,6 +4,7 @@ import Dropdown from "~/components/Dropdown";
 import Slider from "~/components/Slider";
 import type { MutableRefObject } from "react";
 import type { InputType } from "~/types/input";
+import { Mapping } from "~/constants/mapping";
 
 type PropType = {
   formRef: MutableRefObject<InputType>;
@@ -46,7 +47,7 @@ const GeneralForm = ({ formRef }: PropType) => {
           <label className="mb-3 text-sm leading-none text-gray-800">
             Gender
           </label>
-          <Dropdown />
+          <Dropdown options={Object.keys(Mapping.gender)} setVal={() => null} />
         </div>
       </div>
       <div className="mt-12 items-center md:flex">
@@ -54,13 +55,16 @@ const GeneralForm = ({ formRef }: PropType) => {
           <label className="mb-3 text-sm leading-none text-gray-800">
             Country
           </label>
-          <Dropdown />
+          <Dropdown
+            options={Object.keys(Mapping.country)}
+            setVal={() => null}
+          />
         </div>
         <div className="mt-8 flex flex-col md:ml-12 md:mt-0">
           <label className="mb-3 text-sm leading-none text-gray-800">
             Race
           </label>
-          <Dropdown />
+          <Dropdown options={Object.keys(Mapping.race)} setVal={() => null} />
         </div>
       </div>
       <button
