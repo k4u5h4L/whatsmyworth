@@ -20,7 +20,7 @@ export default function RootLayout({
           <div className="h-full min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100"></div>
 
           {/* To control the scrolling */}
-          <div className="relative z-10 h-screen py-1">
+          <div className="relative z-10 h-screen overflow-auto py-1">
             {/* Render all the children */}
             {children}
           </div>
