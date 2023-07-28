@@ -1,17 +1,58 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 "use client";
 
-import { useRouter } from "next/navigation";
-import type { MutableRefObject } from "react";
+import { useEffect, type MutableRefObject, useState } from "react";
 import type { InputType } from "~/types/input";
+import * as tf from "@tensorflow/tfjs";
 
 type PropType = {
   formRef: MutableRefObject<InputType>;
 };
 
 // hostname: window.location.origin
-
 const Result = ({ formRef }: PropType) => {
-  const router = useRouter();
+  const [model, setModel] = useState<tf.LayersModel>();
+  const [loading, setLoading] = useState(false);
+  const [salary, setSalary] = useState(0);
+
+  useEffect(() => {
+    const loadModel = async () => {
+      const model = await tf.loadLayersModel("/model/model.json");
+      setModel(model);
+    };
+
+    if (typeof window !== "undefined") {
+      loadModel();
+    }
+  }, []);
+
+  const evaluateModel = () => {
+    setLoading(true);
+    console.log(formRef.current);
+
+    const pred = model!.predict(
+      tf.tensor2d([
+        [
+          formRef.current.age,
+          formRef.current.gender,
+          formRef.current.education,
+          formRef.current.role,
+          formRef.current.yoe,
+          formRef.current.country,
+          formRef.current.race,
+        ],
+      ])
+    );
+
+    // @ts-ignore
+    setSalary(pred.dataSync()[0]);
+
+    setLoading(false);
+  };
 
   return (
     <>
@@ -35,19 +76,16 @@ const Result = ({ formRef }: PropType) => {
         aria-label="enter Personal data"
         className="mt-10 text-xl font-semibold leading-7 text-gray-800"
       >
-        Salary in USD: $100,000
+        Salary in USD: {loading ? "Thinking..." : formatMoney(salary)}
       </h2>
       <button
         role="button"
         aria-label="Next step"
-        onClick={() => {
-          // router.refresh();
-          console.log(formRef.current);
-        }}
+        onClick={evaluateModel}
         className="mt-7 flex items-center justify-center rounded border border-gray-400 bg-white px-7 py-4 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-700 focus:ring-offset-2 md:mt-14"
       >
         <span className="text-center text-sm font-medium capitalize text-gray-800">
-          I wanna go again
+          Check my salary!
         </span>
         <svg
           className="ml-3 mt-1"
@@ -65,3 +103,16 @@ const Result = ({ formRef }: PropType) => {
 };
 
 export default Result;
+
+const formatMoney = (amount: number) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    notation: "standard",
+  })
+    .format(amount)
+    .replace(/^(\D+)/, "$1 ")
+    .replace(/\s+/, " ")
+    .replace(/[A-Za-z]$/, " $&");
+};

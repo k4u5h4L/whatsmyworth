@@ -1,11 +1,15 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import EducationForm from "~/containers/EducationForm";
 import ExperienceForm from "~/containers/ExperienceForm";
 import GeneralForm from "~/containers/GeneralForm";
-import Result from "~/containers/Result";
 import type { InputType } from "~/types/input";
+// import Result from "~/containers/Result";
+const Result = dynamic(() => import("~/containers/Result"), {
+  ssr: false,
+});
 
 const FormsToMap = [GeneralForm, EducationForm, ExperienceForm, Result];
 
