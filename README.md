@@ -1,28 +1,79 @@
-# Create T3 App
+<h1 align="center">What's my worth</h1></br>
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<p align="center">
+:money_mouth_face: A web app which recommends recipes based on the ingredients provided. :dollar:
+</p>
+<br>
 
-## What's next? How do I make an app with this?
+<p align="center">
+  <a href="#"><img alt="built with love" src="https://forthebadge.com/images/badges/built-with-love.svg"/></a>
+  <a href="#"><img alt="js Badge" src="https://forthebadge.com/images/badges/made-with-typescript.svg"/></a>
+  <a href="https://github.com/k4u5h4L"><img alt="k4u5h4L GitHub badge" height="37" src="https://badgen.net/badge/GitHub/k4u5h4L?icon=github&color=24292e"/></a>
+  <a href="#"><img alt="machine Badge" height="37" src="https://forthebadge.com/images/badges/works-on-my-machine.svg"/></a>
+  <a href="#"><img alt="not bug but feature" height="37" src="https://forthebadge.com/images/badges/not-a-bug-a-feature.svg"/></a>
+  <a href="#"><img alt="spaghetti Badge" src="https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg"/></a>
+</p>
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+<br>
+<p align="center">
+<img width="320px" src="public/money.svg" alt="money icon"></img>
+</p><br>
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Features:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- Enter specific fields lke Age, Gender, Education Level, Job Title, Years of Experience, Country and Race. Given this, the AI model will determine your approximate salary expectations in USD.
 
-## Learn More
+- Very light and performant, thanks to the model being loaded directly in the browser by Tensorflow.js.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Tech stack:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- The T3 stack:
+  - Next.js
+  - React
+  - Typescript
+  - Tailwind CSS
+  - PostCSS config
+- Tensorflow & Tensorflow.js
+- Python, with numpy, pandas and sklearn to train and export the keras model.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Development/instllation
 
-## How do I deploy this?
+How to run the project locally on your own hardware:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- Clone and cd into the repo.
+
+```
+git clone https://github.com/k4u5h4L/whatsmyworth.git && cd whatsmyworth
+```
+
+- Install the required dependencies
+
+```
+yarn install
+```
+
+- Cope the contents of the `.env.example` file to `.env` and fill in the needed API keys and data if required. Ignore this stpe if the file is empty.
+
+- Start the development server by running
+
+```
+yarn dev
+```
+
+This should spin up the site on [localhost:3000](http://localhost:3000).
+
+If you want a production server, build and start the server.
+
+```
+yarn run build && yarn start
+```
+
+## Note:
+
+- This project is made as a hobby and is <b>NOT</b> a commercial application.
+- Please do not consider the output of the AI model as anything concrete, as this is only for educational purposes.
+- Any contribution is welcome. You can fork and submit a pull request.
+
+## Citations:
+
+- Salary dataset from [Kaggle](https://www.kaggle.com/datasets/sudheerp2147234/salary-dataset-based-on-country-and-race).
