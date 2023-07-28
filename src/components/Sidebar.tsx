@@ -8,11 +8,9 @@ const SideBar = () => {
     text: 100,
   };
   return (
-    <div className={`flex w-64 flex-col rounded bg-indigo-700 px-6`}>
+    <div className="flex w-64 flex-col bg-white px-6">
       {/* {Header Section} */}
-      <div
-        className={`flex h-24 w-full items-center justify-start space-x-8 text-indigo-100`}
-      >
+      <div className="flex h-24 w-full items-center justify-start space-x-8 text-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -28,12 +26,10 @@ const SideBar = () => {
         </span>
       </div>
       <div
-        className={`flex h-full flex-1 flex-col border-b border-t py-8 border-${value.bgColor}-${value.text} border-opacity-25`}
+        className={`flex h-full flex-1 flex-col border-b border-t border-black border-opacity-25 py-8`}
       >
         <div className="flex flex-1 flex-col py-4">
-          <div
-            className={`flex flex-col space-y-2 text-${value.bgColor}-${value.text}`}
-          >
+          <div className={`flex flex-col space-y-2 text-black`}>
             <a href="https://github.com/k4u5h4L/whatsmyworth">
               GitHub project link: <br />
               whatsmyworth
@@ -51,7 +47,7 @@ const SideBar = () => {
           </div>
         </div>
         <div
-          className={`flex w-full flex-col space-y-2 p-6 text-${value.bgColor}-${value.text} bg-${value.bgColor}-${value.notify} rounded-lg bg-opacity-20`}
+          className={`flex w-full flex-col space-y-2 rounded-lg bg-white bg-opacity-20 p-6 text-black`}
         >
           <h3 className="text-sm font-semibold">
             Created by <a href="https://kaush.me">Kaushal</a>

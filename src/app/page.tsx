@@ -29,7 +29,7 @@ function Home() {
   return (
     <div>
       <div className="w-full bg-white p-10">
-        <div className="items-center border-b border-gray-200 pb-6 md:flex">
+        <div className="sticky top-0 z-20 items-center border-b border-gray-200 bg-white pb-6 pt-6 md:flex">
           <div className="mt-4 flex items-center md:mt-0">
             <div className="flex h-8 w-8 items-center justify-center rounded bg-gray-100">
               <p className="text-base font-medium leading-none text-gray-800">
