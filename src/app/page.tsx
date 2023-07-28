@@ -1,6 +1,27 @@
+"use client";
+
+import { useRef } from "react";
+import EducationForm from "~/containers/EducationForm";
+import ExperienceForm from "~/containers/ExperienceForm";
 import GeneralForm from "~/containers/GeneralForm";
+import Result from "~/containers/Result";
+import type { InputType } from "~/types/input";
+
+const FormsToMap = [GeneralForm, EducationForm, ExperienceForm, Result];
+
+const initForm: InputType = {
+  age: 0,
+  gender: "",
+  education: "",
+  role: "",
+  yoe: "",
+  country: "",
+  race: "",
+};
 
 function Home() {
+  const formRef = useRef(initForm);
+
   return (
     <div>
       <div className="w-full bg-white p-10">
@@ -54,7 +75,10 @@ function Home() {
         >
           Determine your salary based on the below fields...
         </h1>
-        <GeneralForm />
+
+        {FormsToMap.map((Form, index) => (
+          <Form key={index} formRef={formRef} />
+        ))}
       </div>
     </div>
   );

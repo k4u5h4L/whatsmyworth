@@ -1,8 +1,15 @@
 "use client";
+
 import Dropdown from "~/components/Dropdown";
 import Slider from "~/components/Slider";
+import type { MutableRefObject } from "react";
+import type { InputType } from "~/types/input";
 
-const GeneralForm = () => {
+type PropType = {
+  formRef: MutableRefObject<InputType>;
+};
+
+const GeneralForm = ({ formRef }: PropType) => {
   return (
     <>
       <h2
