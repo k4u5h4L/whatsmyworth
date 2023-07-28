@@ -1,4 +1,4 @@
-import Form1 from "~/components/Form1";
+import GeneralForm from "~/containers/GeneralForm";
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
               </p>
             </div>
             <p className="ml-3 text-base font-medium leading-4 text-gray-800">
-              Sign Up
+              General info
             </p>
           </div>
           <div className="mt-4 flex items-center md:ml-12 md:mt-0">
@@ -22,7 +22,7 @@ function Home() {
               </p>
             </div>
             <p className="ml-3 text-base font-medium leading-4 text-gray-800">
-              Security Check
+              Education
             </p>
           </div>
           <div className="mt-4 flex items-center md:ml-12 md:mt-0">
@@ -32,21 +32,29 @@ function Home() {
               </p>
             </div>
             <p className="ml-3 text-base font-medium leading-4 text-gray-800">
-              Confirm Info
+              Experience
             </p>
           </div>
           <div className="mt-4 flex items-center md:ml-12 md:mt-0">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-gray-100">
+            <div className="flex h-8 w-8 items-center justify-center rounded bg-orange-300">
               <p className="text-base font-medium leading-none text-gray-800">
                 04
               </p>
             </div>
             <p className="ml-3 text-base font-medium leading-4 text-gray-800">
-              Onboarding
+              <i>Your worth...</i>
             </p>
           </div>
         </div>
-        <Form1 />
+        <h1
+          tabIndex={0}
+          role="heading"
+          aria-label="profile information"
+          className="mt-12 text-4xl font-bold text-gray-800 focus:outline-none"
+        >
+          Determine your salary based on the below fields...
+        </h1>
+        <GeneralForm />
       </div>
     </div>
   );
