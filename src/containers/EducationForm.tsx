@@ -50,7 +50,7 @@ const EducationForm = ({ formRef }: PropType) => {
           />
         </div>
       </div>
-      <button
+      {/* <button
         role="button"
         aria-label="Next step"
         className="mt-7 flex items-center justify-center rounded border border-gray-400 bg-white px-7 py-4 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-700 focus:ring-offset-2 md:mt-14"
@@ -68,7 +68,7 @@ const EducationForm = ({ formRef }: PropType) => {
         >
           <path d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z" fill="#242731" />
         </svg>
-      </button>
+      </button> */}
     </>
   );
 };

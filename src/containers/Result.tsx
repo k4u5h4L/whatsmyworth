@@ -21,8 +21,10 @@ const Result = ({ formRef }: PropType) => {
 
   useEffect(() => {
     const loadModel = async () => {
+      console.log("Model is being loaded...");
       const model = await tf.loadLayersModel("/model/model.json");
       setModel(model);
+      console.log("Model is loaded");
     };
 
     if (typeof window !== "undefined") {
