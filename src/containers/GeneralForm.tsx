@@ -40,7 +40,7 @@ const GeneralForm = ({ formRef }: PropType) => {
       <div className="mt-8 items-center md:flex">
         <div className="flex flex-col">
           <label className="mb-3 text-sm leading-none text-gray-800">Age</label>
-          <Slider />
+          <Slider name="age" setValue={() => null} min={1} max={100} />
         </div>
         <div className="mt-8 flex flex-col md:ml-12 md:mt-0">
           <label className="mb-3 text-sm leading-none text-gray-800">

@@ -1,9 +1,18 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function Slider() {
+type PropType = {
+  name: string;
+  setValue: (a: number) => void;
+  max: number;
+  min: number;
+};
+
+function Slider({ name, setValue, max, min }: PropType) {
+  const [curVal, setCurVal] = useState(0);
+
   useEffect(() => {
     const range7 = document.getElementById("range7")!,
       setValue7 = () => {
@@ -20,19 +29,30 @@ function Slider() {
     document.addEventListener("DOMContentLoaded", setValue7);
     range7.addEventListener("input", setValue7);
   });
+
+  const updateVal = (val: number) => {
+    setCurVal(val);
+    setValue(val);
+  };
+
   return (
     <>
-      <p className="pt-3  text-xs text-gray-600">Selected age:</p>
+      <p className="pt-3  text-xs text-gray-600">
+        Selected {name}: {curVal}
+      </p>
       <div className="range-slider_slider_7">
         <div id="tooltip_slider_7" />
         <input
           id="range7"
           className="rounded-full"
           type="range"
-          step={10}
+          step={1}
           defaultValue={0}
-          min={0}
-          max={800}
+          min={min}
+          max={max}
+          onChange={(e) => {
+            updateVal(Number(e.target.value));
+          }}
         />
       </div>
       <div className="-mt-2 flex items-center justify-between">

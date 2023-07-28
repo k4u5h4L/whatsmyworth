@@ -11,12 +11,12 @@ const FormsToMap = [GeneralForm, EducationForm, ExperienceForm, Result];
 
 const initForm: InputType = {
   age: 0,
-  gender: "",
-  education: "",
-  role: "",
-  yoe: "",
-  country: "",
-  race: "",
+  gender: 0,
+  education: 0,
+  role: 0,
+  yoe: 0,
+  country: 0,
+  race: 0,
 };
 
 function Home() {
