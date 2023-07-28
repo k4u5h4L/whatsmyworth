@@ -11,6 +11,22 @@ type PropType = {
 };
 
 const GeneralForm = ({ formRef }: PropType) => {
+  const updateAge = (num: number) => {
+    formRef.current.age = num;
+  };
+
+  const updateGender = (gen: string) => {
+    formRef.current.gender = Mapping.gender[gen] ?? 0;
+  };
+
+  const updateRace = (rac: string) => {
+    formRef.current.race = Mapping.race[rac] ?? 0;
+  };
+
+  const updateCountry = (coun: string) => {
+    formRef.current.country = Mapping.country[coun] ?? 0;
+  };
+
   return (
     <>
       <h2
@@ -41,13 +57,16 @@ const GeneralForm = ({ formRef }: PropType) => {
       <div className="mt-8 items-center md:flex">
         <div className="flex flex-col">
           <label className="mb-3 text-sm leading-none text-gray-800">Age</label>
-          <Slider name="age" setValue={() => null} min={1} max={100} />
+          <Slider name="age" setValue={updateAge} min={1} max={100} />
         </div>
         <div className="mt-8 flex flex-col md:ml-12 md:mt-0">
           <label className="mb-3 text-sm leading-none text-gray-800">
             Gender
           </label>
-          <Dropdown options={Object.keys(Mapping.gender)} setVal={() => null} />
+          <Dropdown
+            options={Object.keys(Mapping.gender)}
+            setVal={updateGender}
+          />
         </div>
       </div>
       <div className="mt-12 items-center md:flex">
@@ -57,14 +76,14 @@ const GeneralForm = ({ formRef }: PropType) => {
           </label>
           <Dropdown
             options={Object.keys(Mapping.country)}
-            setVal={() => null}
+            setVal={updateCountry}
           />
         </div>
         <div className="mt-8 flex flex-col md:ml-12 md:mt-0">
           <label className="mb-3 text-sm leading-none text-gray-800">
             Race
           </label>
-          <Dropdown options={Object.keys(Mapping.race)} setVal={() => null} />
+          <Dropdown options={Object.keys(Mapping.race)} setVal={updateRace} />
         </div>
       </div>
       <button

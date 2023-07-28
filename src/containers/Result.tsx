@@ -8,6 +8,8 @@ type PropType = {
   formRef: MutableRefObject<InputType>;
 };
 
+// hostname: window.location.origin
+
 const Result = ({ formRef }: PropType) => {
   const router = useRouter();
 
@@ -39,7 +41,8 @@ const Result = ({ formRef }: PropType) => {
         role="button"
         aria-label="Next step"
         onClick={() => {
-          router.refresh();
+          // router.refresh();
+          console.log(formRef.current);
         }}
         className="mt-7 flex items-center justify-center rounded border border-gray-400 bg-white px-7 py-4 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-700 focus:ring-offset-2 md:mt-14"
       >

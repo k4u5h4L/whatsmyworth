@@ -1,5 +1,3 @@
-const userProfileImage = `https://scontent.fdel42-1.fna.fbcdn.net/v/t1.6435-9/57624905_2442339965785962_6352756075350982656_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=vNjPtukrl6MAX_1iIFs&_nc_ht=scontent.fdel42-1.fna&oh=9ed8dc4a27d05303d511afcd58ab9cbc&oe=60A4B81A`;
-
 const SideBar = () => {
   const value = {
     bgColor: "indigo",

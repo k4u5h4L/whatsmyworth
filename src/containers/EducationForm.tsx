@@ -8,6 +8,10 @@ type PropType = {
 };
 
 const EducationForm = ({ formRef }: PropType) => {
+  const updateEducation = (edu: string) => {
+    formRef.current.education = Mapping.education[edu] ?? 0;
+  };
+
   return (
     <>
       <h2
@@ -42,7 +46,7 @@ const EducationForm = ({ formRef }: PropType) => {
           </label>
           <Dropdown
             options={Object.keys(Mapping.education)}
-            setVal={() => null}
+            setVal={updateEducation}
           />
         </div>
       </div>

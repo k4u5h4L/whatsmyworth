@@ -9,6 +9,13 @@ type PropType = {
 };
 
 const ExperienceForm = ({ formRef }: PropType) => {
+  const updateRole = (rol: string) => {
+    formRef.current.role = Mapping.role[rol] ?? 0;
+  };
+  const updateYoe = (yoe: number) => {
+    formRef.current.yoe = yoe;
+  };
+
   return (
     <>
       <h2
@@ -17,7 +24,7 @@ const ExperienceForm = ({ formRef }: PropType) => {
         aria-label="profile information"
         className="mt-12 text-3xl font-bold text-gray-800 focus:outline-none"
       >
-        General info
+        Professional info
       </h2>
       <p
         role="contentinfo"
@@ -31,23 +38,23 @@ const ExperienceForm = ({ formRef }: PropType) => {
         aria-label="enter Personal data"
         className="mt-10 text-xl font-semibold leading-7 text-gray-800"
       >
-        Personal data
+        Professional data
       </h2>
       <p className="mt-0.5 text-sm font-light leading-none text-gray-600">
-        Your age, gender, country and race
+        Your title or role in your job, and your years of experience
       </p>
       <div className="mt-8 items-center md:flex">
         <div className="flex flex-col">
           <label className="mb-3 text-sm leading-none text-gray-800">
             Year of experience
           </label>
-          <Slider name="yoe" setValue={() => null} min={0} max={50} />
+          <Slider name="yoe" setValue={updateYoe} min={0} max={50} />
         </div>
         <div className="mt-8 flex flex-col md:ml-12 md:mt-0">
           <label className="mb-3 text-sm leading-none text-gray-800">
             Title/role of the job
           </label>
-          <Dropdown options={Object.keys(Mapping.role)} setVal={() => null} />
+          <Dropdown options={Object.keys(Mapping.role)} setVal={updateRole} />
         </div>
       </div>
       <button
